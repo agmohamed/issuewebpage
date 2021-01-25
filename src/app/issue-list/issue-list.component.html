@@ -1,0 +1,40 @@
+<div class="container wrapper">
+  <div class="row">
+    <div class="col-sm-12">
+      <h2>List of Issues</h2>
+      <ul class="nav nav-tabs">
+        <li class="nav-item" routerLinkActive="active" routerLink="/add-issue">Add Issue</li>&nbsp;&nbsp;&nbsp;
+        <li class="nav-item" routerLinkActive="active" routerLink="/issue-list">List Issue</li>
+      </ul>
+    </div>
+  </div>
+<div class="row">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Issue Id</th>
+          <th scope="col">Issue Name</th>
+          <th scope="col">Issue Message</th>
+          <th scope="col">Action</th>
+          <th scope="col"></th>
+        </tr>
+
+      </thead>
+      <tbody>
+        <tr *ngFor="let issue of issues"
+          [class.selected]="issue === selectedIssue"
+        >
+          <td>{{issue.id}}</td>
+          <td>{{issue.issue_name}}</td>
+          <td>{{issue.issue_message}}</td>
+          <td>
+            <button type="button" class="btn btn-success" (click)="edit(issue)" >Edit</button>
+          </td>
+          <td>
+            <button type="button" class="btn btn-success" (click)="remove(issue)">Remove</button>  
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

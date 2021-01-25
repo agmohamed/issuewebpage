@@ -1,0 +1,32 @@
+
+<div class="container">
+  <h3>Template driven </h3>
+
+  <br><br>
+  <form (ngSubmit)="onSubmit()" #issueForm="ngForm">
+      <div class="row">
+        <div class="form-group">
+          <label for="issue_id"><strong>Issue ID</strong> </label>
+          <input type="text" id="issue_id" name="issue_id" ngModel class="form-control" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label for="issue_name"><strong>Issue Name</strong></label>
+          <input type="text" id="issue_name" name="issue_name" ngModel class="form-control" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label for="lastname"><strong>Issue Message</strong></label>
+          <input type="text" id="issue_message" name="issue_message" ngModel class="form-control" required #issue_message="ngModel"> 
+          <strong class="help-block" style="color: red;" *ngIf="!issue_message.valid && issue_message.touched">Please Enter valid message</strong>
+        </div>
+      </div>
+        <div class="row">
+        <div class="form-group">
+          <button type="submit" class="btn btn-success" [disabled]="!issueForm.valid">Submit</button>
+        </div>
+      </div>
+  </form>
+  </div>
